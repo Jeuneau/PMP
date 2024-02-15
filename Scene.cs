@@ -13,32 +13,30 @@ namespace Movement
 		//private GUI gui;		
 		
 
-		//public int dead_enemies;
-
 		//private float score;
 
-		public Vector2 distance_vec;
+		
 		public BouncingBall ball;
 		
 
-		double distance;
+		
 
         // private fields
-        private Rectangle rectangle;
-
-		public int health;
-
-		Node hp;
-
-		bool Collision;
+        //private Rectangle rectangle;
 
 		
 
 		
 
-		private Gameover gameover;
+		
 
-		private Youwon youwon;
+		
+
+		
+
+		//private Gameover gameover;
+
+		//private Youwon youwon;
 
 		
 
@@ -53,29 +51,17 @@ namespace Movement
 
         // Update is called every frame
         public override void Update(float deltaTime)
-		{
-
-
-			
-			
-			
-			
+		{	
 			base.Update(deltaTime);
 			HandleInput(deltaTime);
-
-
-			
-			
 		}
 
 		private void HandleInput(float deltaTime)
 		{
 		
 		}
-			
-
-		}
 	}
+}
  // class
 	
    

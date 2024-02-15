@@ -21,7 +21,7 @@ Methods:
 
 namespace Movement
 {
-	class Rectangle : MoverNode
+	class Player : MoverNode
 	{
 		// your private fields here (rotSpeed, thrustForce)
 	
@@ -30,7 +30,7 @@ namespace Movement
 
 		
         // constructor + call base constructor
-        public Rectangle() : base("resources/spaceship_def.png")
+        public Player() : base("resources/.png")
 		{
 			
 			
