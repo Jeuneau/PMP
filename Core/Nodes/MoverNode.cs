@@ -8,6 +8,7 @@ namespace Movement
 		public Vector2 Velocity;
 		public Vector2 Acceleration;
 		private float mass; // OK, let's keep this one private
+		
 
 		// public Vector2 Velocity { 
 		// 	get { return velocity; }

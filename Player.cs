@@ -25,22 +25,21 @@ namespace Movement
 	{
 		// your private fields here (rotSpeed, thrustForce)
 	
-
+        
 
 
 		
         // constructor + call base constructor
-        public Player() : base("resources/.png")
+        public Player() : base("resources/Player.png")
 		{
-			
+            Position = new Vector2(640,690);
 			
 		}
 
 		// Update is called every frame
 		public override void Update(float deltaTime)
 		{
-			Move(deltaTime);
-			WrapEdges();
+			
 		}
 
 		// your own private methods

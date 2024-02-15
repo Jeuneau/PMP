@@ -17,7 +17,7 @@ namespace Movement
 
 		
 		public BouncingBall ball;
-		
+		public Player player;
 
 		
 
@@ -47,6 +47,8 @@ namespace Movement
 		{
 			ball = new BouncingBall();
 			AddChild(ball);
+			player = new Player();
+			AddChild(player);
 		}
 
         // Update is called every frame
