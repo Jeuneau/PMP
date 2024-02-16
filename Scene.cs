@@ -16,7 +16,7 @@ namespace Movement
 		//private float score;
 
 		
-		public BouncingBall ball;
+		public Ball ball;
 		public Player player;
 
 		
@@ -45,23 +45,43 @@ namespace Movement
 		// constructor + call base constructor
 		public Scene(String t) : base(t)
 		{
-			ball = new BouncingBall();
+			ball = new Ball();
 			AddChild(ball);
 			player = new Player();
-			AddChild(player);
 		}
 
         // Update is called every frame
         public override void Update(float deltaTime)
 		{	
+			player.Draw();
+			player.WrapEdges();
 			base.Update(deltaTime);
 			HandleInput(deltaTime);
+
+			if (CalculateDistance(player.Position, ball.Position) < 20)
+					{
+						ball.Velocity = -ball.Velocity;
+					}
 		}
 
+		 
 		private void HandleInput(float deltaTime)
 		{
-		
+			 if (Raylib.IsKeyDown(KeyboardKey.KEY_LEFT))
+			{
+                player.MoveLeft(deltaTime);
+			}
+
+            if (Raylib.IsKeyDown(KeyboardKey.KEY_RIGHT))
+			{ 
+                player.MoveRight(deltaTime);
+			}
 		}
+
+		private float CalculateDistance(Vector2 a, Vector2 b)
+        {
+            return Vector2.Distance(a, b);
+        }
 	}
 }
  // class

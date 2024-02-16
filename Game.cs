@@ -17,7 +17,7 @@ namespace Movement
 			scenes = new List<SceneNode>();
 
 			
-			scenes.Add(new Scene("PMP"));
+			scenes.Add(new Scene("Arkanoid"));
 			
 		}
 
