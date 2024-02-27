@@ -24,7 +24,7 @@ namespace Movement
 	class Player : SpriteNode
 	{
 		// your private fields here (rotSpeed, thrustForce)
-		 private float horSpeed= 400.0f;
+		 private float horSpeed= 650.0f;
 		 public Vector2 position;
 		 Texture2D texture;
 		 public Vector2 velocity;

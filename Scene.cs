@@ -58,7 +58,7 @@ namespace Movement
 			base.Update(deltaTime);
 			HandleInput(deltaTime);
 
-			if (CalculateDistance(player.Position, ball.Position) < 30)
+			if (CalculateDistance(player.Position, ball.Position) < 1)
 					{
 						ball.Velocity = -ball.Velocity;
 					}
