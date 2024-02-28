@@ -26,7 +26,7 @@ namespace Movement
 		// your private fields here (rotSpeed, thrustForce)
 		 private float horSpeed= 650.0f;
 		 public Vector2 position;
-		 Texture2D texture;
+		 public Texture2D texture;
 		 public Vector2 velocity;
 		 public float window_width = 1280;
 		 public float window_height = 720;

@@ -23,11 +23,14 @@ namespace Movement
 	class Ball : MoverNode
 	{
 		// your private fields here (add Velocity, Acceleration, addForce method)
-
+		public Texture2D texture;
 
 		// constructor + call base constructor
 		public Ball() : base("resources/ball.png")
 		{
+			Image ball = Raylib.LoadImage("resources/ball.png");  // Load image data into CPU memory (RAM)
+			texture = Raylib.LoadTextureFromImage(ball);       // Image converted to texture, GPU memory (RAM -> VRAM)
+            Raylib.UnloadImage(ball);
 			Position = new Vector2(Settings.ScreenSize.X / 6, Settings.ScreenSize.Y / 4);
 			Color = Color.BLUE;
 		}
