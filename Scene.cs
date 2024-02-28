@@ -49,11 +49,6 @@ namespace Movement
                 player.MoveRight(deltaTime);
 			}
 		}
-
-		private float CalculateDistance(Vector2 a, Vector2 b)
-        {
-            return Vector2.Distance(a, b);
-        }
 	}
 }
  // class
