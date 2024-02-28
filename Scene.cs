@@ -7,39 +7,9 @@ using System.Numerics;
 namespace Movement
 {
 	class Scene : SceneNode
-	{
-
-
-		//private GUI gui;		
-		
-
-		//private float score;
-
-		
+	{	
 		public Ball ball;
 		public Player player;
-
-		
-
-        // private fields
-        //private Rectangle rectangle;
-
-		
-
-		
-
-		
-
-		
-
-		
-
-		//private Gameover gameover;
-
-		//private Youwon youwon;
-
-		
-
 		
 
 		// constructor + call base constructor
@@ -48,6 +18,7 @@ namespace Movement
 			ball = new Ball();
 			AddChild(ball);
 			player = new Player();
+			
 		}
 
         // Update is called every frame
@@ -61,7 +32,7 @@ namespace Movement
 			Rectangle player_rec = new Rectangle(player.Position.X, player.Position.Y, player.texture.width, player.texture.height);
             Rectangle ball_rec = new Rectangle(ball.Position.X, ball.Position.Y, ball.texture.width, ball.texture.height);
                     if(Raylib.CheckCollisionRecs(player_rec, ball_rec)) {
-						ball.Velocity = -ball.Velocity;
+						ball.Bounce();
 					}
 		}
 

@@ -1,4 +1,5 @@
 using System.Numerics;
+using System.Security.Cryptography.X509Certificates;
 
 namespace Movement
 {
@@ -79,7 +80,7 @@ namespace Movement
 				Velocity.Y*=-1;
 			}
 		}
-			public void WrapEdges()
+		public void WrapEdges()
 		{
 			float scr_width = Settings.ScreenSize.X;
 			float scr_height = Settings.ScreenSize.Y;
@@ -100,12 +101,6 @@ namespace Movement
 
 			*/
 
-			
-
-			
-            
-
-            
 			if (Position.X > scr_width) {
                 Position.X = 0;
             }
@@ -118,9 +113,7 @@ namespace Movement
             if (Position.Y < 0) {
                 Position.Y = scr_height;
             }
-
-		
-
 		}
 	}
 }
+

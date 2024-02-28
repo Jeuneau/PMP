@@ -45,7 +45,7 @@ namespace Movement
 			} else {
 				limited = normalized * max;
 			}
-			Console.WriteLine("limited to magnitude "+max+": " + limited);
+			Console.WriteLine("limited to magnitude " + max + ": " + limited);
 		}
 
 	}

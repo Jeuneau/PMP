@@ -1,3 +1,4 @@
+using System;
 using System.Numerics; // Vector2
 using Raylib_cs; // Color
 
@@ -24,6 +25,12 @@ namespace Movement
 	{
 		// your private fields here (add Velocity, Acceleration, addForce method)
 		public Texture2D texture;
+		public double angle;
+		float scr_width;
+		float scr_height;
+		float spr_width;
+		float spr_height;
+
 
 		// constructor + call base constructor
 		public Ball() : base("resources/ball.png")
@@ -33,6 +40,11 @@ namespace Movement
             Raylib.UnloadImage(ball);
 			Position = new Vector2(Settings.ScreenSize.X / 6, Settings.ScreenSize.Y / 4);
 			Color = Color.BLUE;
+			angle = Math.Atan2(Velocity.Y, Velocity.X);
+			float scr_width = Settings.ScreenSize.X;
+			float scr_height = Settings.ScreenSize.Y;
+			float spr_width = TextureSize.X;
+			float spr_height = TextureSize.Y;
 		}
 
 		// Update is called every frame
@@ -43,10 +55,8 @@ namespace Movement
 		}
 
 		// your own private methods
-		
-		
-
-		
-
+		public void Bounce() {
+			Velocity.Y *= -1;
+		}
 	}
 }
