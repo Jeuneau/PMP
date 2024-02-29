@@ -82,6 +82,7 @@ namespace Movement
         // Update is called every frame
         public override void Update(float deltaTime)
 		{	
+			playtime--;
 			player.Draw();
 			player.WrapEdges();
 			base.Update(deltaTime);

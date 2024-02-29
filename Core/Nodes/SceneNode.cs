@@ -15,6 +15,7 @@ namespace Movement
 		//private int score= 0;
 
 		public int eliminated_squares = 0;
+		public int playtime = 0;
 		public State State { get; set; }
 
 		private string scenetitle;
@@ -34,6 +35,7 @@ namespace Movement
 			ShowFrameRate(deltaTime);
 			ShowTitle();
 			ShowScore();
+			CountDown();
 		}
 
 		private float timer = 0;
@@ -61,6 +63,11 @@ namespace Movement
 				
 			Raylib.DrawText("Score: "+ eliminated_squares, 1150, 30, 20, Color.BLUE);
 			// Raylib.DrawText("fps: "+Raylib.GetFPS(), 1150, 10, 20, Color.GREEN);
+		}
+
+		private void CountDown()
+		{
+			Raylib.DrawText("Time: "+ playtime, 1150, 50, 20, Color.BLUE);
 		}
 
 		private void ShowTitle()
