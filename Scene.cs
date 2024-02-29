@@ -98,9 +98,9 @@ namespace Movement
                 if(Raylib.CheckCollisionRecs(square_rec, ball_rec)) {
                     RemoveChild(squares[i]);
 					squares.RemoveAt(i);
+					eliminated_squares++;
                 }
             }
-			
 		}
 
 		 
