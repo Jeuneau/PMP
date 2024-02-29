@@ -10,6 +10,7 @@ namespace Movement
 	{	
 		public Ball ball;
 		public Player player;
+		public Square square;
 		
 
 		// constructor + call base constructor
@@ -18,6 +19,9 @@ namespace Movement
 			ball = new Ball();
 			AddChild(ball);
 			player = new Player();
+			square = new Square();
+			AddChild(square);
+			
 			
 		}
 
@@ -26,6 +30,7 @@ namespace Movement
 		{	
 			player.Draw();
 			player.WrapEdges();
+			square.Draw();
 			base.Update(deltaTime);
 			HandleInput(deltaTime);
 
