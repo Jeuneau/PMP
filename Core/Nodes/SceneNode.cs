@@ -1,3 +1,4 @@
+using System.Runtime.CompilerServices;
 using Raylib_cs;
 
 namespace Movement
@@ -12,11 +13,15 @@ namespace Movement
 
 	abstract class SceneNode : Node
 	{
-		//private int score= 0;
+		public bool input = true;
 
 		public int eliminated_squares = 0;
-		public float playtime = 180f;
+		public float playtime = 60.0f;
 		public float current_time = 0f;
+		public Gameover gameover;
+		public Youwon youwon;
+		public bool collide_ = true;
+
 
 		
 		public State State { get; set; }
@@ -39,6 +44,7 @@ namespace Movement
 			ShowTitle();
 			ShowScore();
 			CountDown();
+			Win();
 		}
 
 		private float timer = 0;
@@ -72,7 +78,29 @@ namespace Movement
 		{
 			current_time = Raylib.GetFrameTime();
 			playtime -= current_time;
+			
+			if(playtime <= 0)
+			{
+				State = State.Lost;
+				playtime = 0;
+				gameover = new Gameover();
+				AddChild(gameover);
+				input = false;
+
+			}
 			Raylib.DrawText($"Time: {playtime:0.00}", 1150, 50, 20, Color. RED);
+		}
+
+		public void Win()
+		{
+			if(eliminated_squares == 10)
+			{
+				State = State.Won;
+				youwon = new Youwon();
+				AddChild(youwon);
+				input = false;
+			}
+			
 		}
 
 		private void ShowTitle()

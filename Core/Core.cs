@@ -28,11 +28,13 @@ namespace Movement
 			scene.TransformNode(Matrix4x4.Identity);
 
 			// draw the scene
+			
 			Raylib.BeginDrawing();
-				Raylib.ClearBackground(Color.BLACK);
+			Raylib.ClearBackground(Color.BLACK);
 
-				// Update (and Draw) all nodes in the Scene
-				UpdateNode(scene, deltaTime);
+			// Update (and Draw) all nodes in the Scene
+			UpdateNode(scene, deltaTime);
+			
 
 			Raylib.EndDrawing();
 

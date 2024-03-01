@@ -25,6 +25,7 @@ namespace Movement
 		private Square square9;
 		private Square square10;
 		
+		
 
 		// constructor + call base constructor
 		public Scene(String t) : base(t)
@@ -86,35 +87,44 @@ namespace Movement
 			player.WrapEdges();
 			base.Update(deltaTime);
 			HandleInput(deltaTime);
-
-			Rectangle player_rec = new Rectangle(player.Position.X, player.Position.Y, player.texture.width, player.texture.height);
-            Rectangle ball_rec = new Rectangle(ball.Position.X, ball.Position.Y, ball.texture.width, ball.texture.height);
-                    if(Raylib.CheckCollisionRecs(player_rec, ball_rec)) {
-						ball.Bounce();
-					}
-			for(int i = 0; i < squares.Count; i++) 
-            {
-                Rectangle square_rec = new Rectangle(squares[i].Position.X, squares[i].Position.Y, square.texture.width, square.texture.height);   
-                if(Raylib.CheckCollisionRecs(square_rec, ball_rec)) {
-                    RemoveChild(squares[i]);
-					squares.RemoveAt(i);
-					eliminated_squares++;
-                }
-            }
+			Collide();
+			
 		}
 
 		 
 		private void HandleInput(float deltaTime)
 		{
-			 if (Raylib.IsKeyDown(KeyboardKey.KEY_LEFT))
+			if(input == true)
 			{
-                player.MoveLeft(deltaTime);
-			}
+				if (Raylib.IsKeyDown(KeyboardKey.KEY_LEFT))
+				{
+                	player.MoveLeft(deltaTime);
+				}
 
-            if (Raylib.IsKeyDown(KeyboardKey.KEY_RIGHT))
-			{ 
-                player.MoveRight(deltaTime);
+				if (Raylib.IsKeyDown(KeyboardKey.KEY_RIGHT))
+				{ 
+					player.MoveRight(deltaTime);
+				}
 			}
+			
+		}
+
+		private void Collide()
+		{
+				Rectangle player_rec = new Rectangle(player.Position.X, player.Position.Y, player.texture.width, player.texture.height);
+				Rectangle ball_rec = new Rectangle(ball.Position.X, ball.Position.Y, ball.texture.width, ball.texture.height);
+						if(Raylib.CheckCollisionRecs(player_rec, ball_rec)) {
+							ball.Bounce();
+						}
+				for(int i = 0; i < squares.Count; i++) 
+				{
+					Rectangle square_rec = new Rectangle(squares[i].Position.X, squares[i].Position.Y, square.texture.width, square.texture.height);   
+					if(Raylib.CheckCollisionRecs(square_rec, ball_rec)) {
+						RemoveChild(squares[i]);
+						squares.RemoveAt(i);
+						eliminated_squares++;
+					}
+				}
 		}
 	}
 }

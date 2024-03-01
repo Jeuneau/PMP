@@ -30,6 +30,7 @@ namespace Movement
 		float scr_height;
 		float spr_width;
 		float spr_height;
+		public bool canMove = true;
 
 
 		// constructor + call base constructor
@@ -38,7 +39,7 @@ namespace Movement
 			Image ball = Raylib.LoadImage("resources/ball.png");  // Load image data into CPU memory (RAM)
 			texture = Raylib.LoadTextureFromImage(ball);       // Image converted to texture, GPU memory (RAM -> VRAM)
             Raylib.UnloadImage(ball);
-			Position = new Vector2(Settings.ScreenSize.X / 6, Settings.ScreenSize.Y / 4);
+			Position = new Vector2(600, 450);
 			Color = Color.BLUE;
 			angle = Math.Atan2(Velocity.Y, Velocity.X);
 			float scr_width = Settings.ScreenSize.X;
@@ -50,8 +51,12 @@ namespace Movement
 		// Update is called every frame
 		public override void Update(float deltaTime)
 		{
-			Move(deltaTime);
-			BounceEdges();
+			if(canMove)
+			{
+				Move(deltaTime);
+				BounceEdges();
+			}
+			
 		}
 
 		// your own private methods
