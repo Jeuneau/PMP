@@ -15,7 +15,10 @@ namespace Movement
 		//private int score= 0;
 
 		public int eliminated_squares = 0;
-		public int playtime = 0;
+		public float playtime = 180f;
+		public float current_time = 0f;
+
+		
 		public State State { get; set; }
 
 		private string scenetitle;
@@ -67,7 +70,9 @@ namespace Movement
 
 		private void CountDown()
 		{
-			Raylib.DrawText("Time: "+ playtime, 1150, 50, 20, Color.BLUE);
+			current_time = Raylib.GetFrameTime();
+			playtime -= current_time;
+			Raylib.DrawText($"Time: {playtime:0.00}", 1150, 50, 20, Color. RED);
 		}
 
 		private void ShowTitle()
