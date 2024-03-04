@@ -21,7 +21,7 @@ Methods:
 
 namespace Movement
 {
-	class Player : SpriteNode
+	class Player : MoverNode
 	{
 		// your private fields here (rotSpeed, thrustForce)
 		 private float horSpeed= 650.0f;

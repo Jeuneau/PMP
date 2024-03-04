@@ -6,7 +6,7 @@ using Raylib_cs; // Color
 
 namespace Movement
 {
-    class Youwon : MoverNode
+    class Youwon : SpriteNode
     {
         public Youwon() : base("resources/Spaceman_YouWon.png") {
 

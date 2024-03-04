@@ -10,20 +10,20 @@ namespace Movement
 	{	
 		public Ball ball;
 		public Player player;
-		List<Square> squares;
-        private Square square;
-        private Square square2;
-        private Square square3;
+		List<Tile> tiles;
+        private Tile tile;
+        private Tile tile2;
+        private Tile tile3;
 
-		private Square square4;
-		private Square square5;
+		private Tile tile4;
+		private Tile tile5;
 
-		private Square square6;
-        private Square square7;
-        private Square square8;
+		private Tile tile6;
+        private Tile tile7;
+        private Tile tile8;
 
-		private Square square9;
-		private Square square10;
+		private Tile tile9;
+		private Tile tile10;
 		
 		
 
@@ -33,51 +33,51 @@ namespace Movement
 			ball = new Ball();
 			AddChild(ball);
 			player = new Player();
-			squares= new List<Square>();
-			square= new Square();
-			square2= new Square();
-			square3= new Square();
-			square4= new Square();
-			square5= new Square();
-			square6= new Square();
-			square7= new Square();
-			square8= new Square();
-			square9= new Square();
-			square10= new Square();
+			tiles = new List<Tile>();
+			tile = new Tile();
+			tile2 = new Tile();
+			tile3 = new Tile();
+			tile4 = new Tile();
+			tile5 = new Tile();
+			tile6 = new Tile();
+			tile7 = new Tile();
+			tile8 = new Tile();
+			tile9 = new Tile();
+			tile10 = new Tile();
 
 			
-			AddChild(square);
-			AddChild(square2);
-			AddChild(square3);
-			AddChild(square4);
-			AddChild(square5);
-			AddChild(square6);
-			AddChild(square7);
-			AddChild(square8);
-			AddChild(square9);
-			AddChild(square10);
+			AddChild(tile);
+			AddChild(tile2);
+			AddChild(tile3);
+			AddChild(tile4);
+			AddChild(tile5);
+			AddChild(tile6);
+			AddChild(tile7);
+			AddChild(tile8);
+			AddChild(tile9);
+			AddChild(tile10);
 			
-			squares.Add(square);
-			squares.Add(square2);
-			squares.Add(square3);
-			squares.Add(square4);
-			squares.Add(square5);
-			squares.Add(square6);
-			squares.Add(square7);
-			squares.Add(square8);
-			squares.Add(square9);
-			squares.Add(square10);
+			tiles.Add(tile);
+			tiles.Add(tile2);
+			tiles.Add(tile3);
+			tiles.Add(tile4);
+			tiles.Add(tile5);
+			tiles.Add(tile6);
+			tiles.Add(tile7);
+			tiles.Add(tile8);
+			tiles.Add(tile9);
+			tiles.Add(tile10);
 
-			square.Position = new Vector2(200,75);
-			square2.Position= new Vector2(600,75);
-			square3.Position= new Vector2(1000,75);
-			square4.Position = new Vector2(200,175);
-			square5.Position = new Vector2(600,175);
-			square6.Position = new Vector2(1000,175);
-			square7.Position= new Vector2(200,275);
-			square8.Position= new Vector2(600,275);
-			square9.Position = new Vector2(1000,275);
-			square10.Position = new Vector2(200,375);
+			tile.Position = new Vector2(200,75);
+			tile2.Position= new Vector2(600,75);
+			tile3.Position= new Vector2(1000,75);
+			tile4.Position = new Vector2(200,175);
+			tile5.Position = new Vector2(600,175);
+			tile6.Position = new Vector2(1000,175);
+			tile7.Position= new Vector2(200,275);
+			tile8.Position= new Vector2(600,275);
+			tile9.Position = new Vector2(1000,275);
+			tile10.Position = new Vector2(200,375);
 		}
 
         // Update is called every frame
@@ -116,13 +116,13 @@ namespace Movement
 						if(Raylib.CheckCollisionRecs(player_rec, ball_rec)) {
 							ball.Bounce();
 						}
-				for(int i = 0; i < squares.Count; i++) 
+				for(int i = 0; i < tiles.Count; i++) 
 				{
-					Rectangle square_rec = new Rectangle(squares[i].Position.X, squares[i].Position.Y, square.texture.width, square.texture.height);   
+					Rectangle square_rec = new Rectangle(tiles[i].Position.X, tiles[i].Position.Y, tile.texture.width,tile.texture.height);   
 					if(Raylib.CheckCollisionRecs(square_rec, ball_rec)) {
-						RemoveChild(squares[i]);
-						squares.RemoveAt(i);
-						eliminated_squares++;
+						RemoveChild(tiles[i]);
+						tiles.RemoveAt(i);
+						eliminated_tiles++;
 					}
 				}
 		}

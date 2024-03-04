@@ -6,7 +6,7 @@ using Raylib_cs; // Color
 
 namespace Movement
 {
-    class Gameover : MoverNode
+    class Gameover : SpriteNode
     {
         public Gameover() : base("resources/Spaceman_gameover.png") {
 

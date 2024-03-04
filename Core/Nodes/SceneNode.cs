@@ -15,12 +15,13 @@ namespace Movement
 	{
 		public bool input = true;
 
-		public int eliminated_squares = 0;
-		public float playtime = 60.0f;
+		public int eliminated_tiles = 0;
+		public float playtime = 3.0f;
 		public float current_time = 0f;
 		public Gameover gameover;
 		public Youwon youwon;
 		public bool collide_ = true;
+		
 
 
 		
@@ -59,19 +60,12 @@ namespace Movement
 				showcounter = framecounter;
 				framecounter = 0;
 			}
-
 			Raylib.DrawText("fps: "+showcounter, 1150, 10, 20, Color.GREEN);
-			// Raylib.DrawText("fps: "+Raylib.GetFPS(), 1150, 10, 20, Color.GREEN);
 		}
 
 		private void ShowScore()
 		{
-
-			//score = aantal dode enemies programmeren
-				
-				
-			Raylib.DrawText("Score: "+ eliminated_squares, 1150, 30, 20, Color.BLUE);
-			// Raylib.DrawText("fps: "+Raylib.GetFPS(), 1150, 10, 20, Color.GREEN);
+			Raylib.DrawText("Score: "+ eliminated_tiles, 1150, 30, 20, Color.BLUE);
 		}
 
 		private void CountDown()
@@ -93,7 +87,7 @@ namespace Movement
 
 		public void Win()
 		{
-			if(eliminated_squares == 10)
+			if(eliminated_tiles == 10)
 			{
 				State = State.Won;
 				youwon = new Youwon();
