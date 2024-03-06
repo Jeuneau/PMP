@@ -12,8 +12,7 @@ namespace Movement
         // constructor + call base constructor
         public Tile() : base("resources/Target_rec.png")
         {
-            Image rect = Raylib.LoadImage("resources/Target_rec.png");  // Load image data into CPU memory (RAM)
-            texture = Raylib.LoadTextureFromImage(rect);       // Image converted to texture, GPU memory (RAM -> VRAM)
+            texture = ResourceManager.Instance.GetTexture("resources/Target_rec.png");
         }
 
         

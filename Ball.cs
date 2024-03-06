@@ -1,5 +1,6 @@
 using System;
 using System.Numerics; // Vector2
+using Microsoft.VisualBasic;
 using Raylib_cs; // Color
 
 /*
@@ -31,14 +32,19 @@ namespace Movement
 		float spr_width;
 		float spr_height;
 		public bool canMove = true;
-
+		public Player player;
+		public float intersectX;
+		public float max_bounceAngle;
+		public float speed;
+		public float bounceAngle;
+		public float relativeIntersectX;
+		public float normalizedRelativeIntersectionX;
 
 		// constructor + call base constructor
 		public Ball() : base("resources/ball.png")
 		{
-			Image ball = Raylib.LoadImage("resources/ball.png");  // Load image data into CPU memory (RAM)
-			texture = Raylib.LoadTextureFromImage(ball);       // Image converted to texture, GPU memory (RAM -> VRAM)
-            Raylib.UnloadImage(ball);
+			texture = ResourceManager.Instance.
+			GetTexture("resources/ball.png");
 			Position = new Vector2(600, 450);
 			Color = Color.BLUE;
 			angle = Math.Atan2(Velocity.Y, Velocity.X);
@@ -46,7 +52,14 @@ namespace Movement
 			float scr_height = Settings.ScreenSize.Y;
 			float spr_width = TextureSize.X;
 			float spr_height = TextureSize.Y;
-		}
+			/*intersectX = 140.0f;
+			max_bounceAngle = 5 * (float)Math.PI / 12;
+			relativeIntersectX = player.Position.X + (player.texture.width/2) - intersectX;
+			normalizedRelativeIntersectionX = relativeIntersectX/(player.texture.width/2);
+			bounceAngle = normalizedRelativeIntersectionX * max_bounceAngle;
+			speed = 500.0f;*/
+		}	
+
 
 		// Update is called every frame
 		public override void Update(float deltaTime)
@@ -61,7 +74,8 @@ namespace Movement
 
 		// your own private methods
 		public void Bounce() {
-			Velocity.Y *= -1;
+			Velocity.X =  speed *(float)Math.Cos(bounceAngle);
+			Velocity.Y = speed * - (float)Math.Sin(bounceAngle);
 		}
 	}
 }

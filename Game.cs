@@ -15,10 +15,7 @@ namespace Movement
 		{
 			core = new Core("Movement");
 			scenes = new List<SceneNode>();
-
-			
 			scenes.Add(new Scene("Arkanoid"));
-			
 		}
 
 		// public methods

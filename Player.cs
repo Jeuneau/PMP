@@ -38,9 +38,7 @@ namespace Movement
         // constructor + call base constructor
         public Player() : base("resources/Player.png")
 		{
-			Image rect = Raylib.LoadImage("resources/Player.png");  // Load image data into CPU memory (RAM)
-			texture = Raylib.LoadTextureFromImage(rect);       // Image converted to texture, GPU memory (RAM -> VRAM)
-            Raylib.UnloadImage(rect);
+			texture = ResourceManager.Instance.GetTexture("resources/Player.png");
 			Position = new Vector2(640,650);
 		}
 
