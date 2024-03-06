@@ -33,12 +33,11 @@ namespace Movement
 		float spr_height;
 		public bool canMove = true;
 		public Player player;
-		public float intersectX;
-		public float max_bounceAngle;
 		public float speed;
 		public float bounceAngle;
-		public float relativeIntersectX;
-		public float normalizedRelativeIntersectionX;
+		public float leftzone;
+		public float middlezone;
+		public float rightzone;
 
 		// constructor + call base constructor
 		public Ball() : base("resources/ball.png")
@@ -52,12 +51,11 @@ namespace Movement
 			float scr_height = Settings.ScreenSize.Y;
 			float spr_width = TextureSize.X;
 			float spr_height = TextureSize.Y;
-			/*intersectX = 140.0f;
-			max_bounceAngle = 5 * (float)Math.PI / 12;
-			relativeIntersectX = player.Position.X + (player.texture.width/2) - intersectX;
-			normalizedRelativeIntersectionX = relativeIntersectX/(player.texture.width/2);
-			bounceAngle = normalizedRelativeIntersectionX * max_bounceAngle;
-			speed = 500.0f;*/
+			leftzone = 75.0f;
+			middlezone = 50.0f;
+			bounceAngle = 45.0f;
+			rightzone = 74.0f;
+			speed = 500.0f;
 		}	
 
 
@@ -74,8 +72,20 @@ namespace Movement
 
 		// your own private methods
 		public void Bounce() {
-			Velocity.X =  speed *(float)Math.Cos(bounceAngle);
-			Velocity.Y = speed * - (float)Math.Sin(bounceAngle);
+			if((Position.X - player.Position.X) <= leftzone)
+			{
+				bounceAngle = -45.0f;
+			}
+			if((Position.X - player.Position.X) <= middlezone)
+			{
+				bounceAngle = 0.0f;
+			}
+			if((Position.X - player.Position.X) <= rightzone)
+			{
+				bounceAngle = 45.0f;
+			}
+			Velocity.X =  speed * (float)Math.Cos(bounceAngle);
+			Velocity.Y = speed * (float)Math.Sin(bounceAngle);
 		}
 	}
 }

@@ -114,7 +114,7 @@ namespace Movement
 				Rectangle player_rec = new Rectangle(player.Position.X, player.Position.Y, player.texture.width, player.texture.height);
 				Rectangle ball_rec = new Rectangle(ball.Position.X, ball.Position.Y, ball.texture.width, ball.texture.height);
 						if(Raylib.CheckCollisionRecs(player_rec, ball_rec)) {
-							//ball.Bounce();
+							ball.Bounce();
 						}
 				for(int i = 0; i < tiles.Count; i++) 
 				{
