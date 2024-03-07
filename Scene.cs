@@ -2,7 +2,10 @@ using System;
 using System.Collections.Generic;
 using Raylib_cs;
 using System.Numerics;
- 
+using System.Runtime.ConstrainedExecution;
+using System.Runtime.InteropServices;
+
+
 
 namespace Movement
 {
@@ -110,21 +113,23 @@ namespace Movement
 		}
 
 		private void Collide()
-		{
-				Rectangle player_rec = new Rectangle(player.Position.X, player.Position.Y, player.texture.width, player.texture.height);
-				Rectangle ball_rec = new Rectangle(ball.Position.X, ball.Position.Y, ball.texture.width, ball.texture.height);
-						if(Raylib.CheckCollisionRecs(player_rec, ball_rec)) {
-							ball.Bounce();
-						}
-				for(int i = 0; i < tiles.Count; i++) 
+		{		
+			
+			if (Raylib.CheckCollisionCircleRec(new Vector2(ball.Position.X, ball.Position.Y), 17, new Rectangle(player.Position.X, player.Position.Y, player.texture.width, player.texture.height)))
+			{
+				Console.WriteLine("collide");
+				ball.Bounce();
+				Console.WriteLine("Ball position: " + ball.Position);
+			}
+			for (int i = 0; i < tiles.Count; i++)
+			{
+				if (Raylib.CheckCollisionCircleRec(new Vector2(ball.Position.X, ball.Position.Y), 17, new Rectangle(tiles[i].Position.X, tiles[i].Position.Y, tile.texture.width, tile.texture.height)))
 				{
-					Rectangle square_rec = new Rectangle(tiles[i].Position.X, tiles[i].Position.Y, tile.texture.width,tile.texture.height);   
-					if(Raylib.CheckCollisionRecs(square_rec, ball_rec)) {
-						RemoveChild(tiles[i]);
-						tiles.RemoveAt(i);
-						eliminated_tiles++;
-					}
+					RemoveChild(tiles[i]);
+					tiles.RemoveAt(i);
+					eliminated_tiles++;
 				}
+			}
 		}
 	}
 }
