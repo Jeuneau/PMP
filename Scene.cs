@@ -27,6 +27,7 @@ namespace Movement
 
 		private Tile tile9;
 		private Tile tile10;
+		public float radius = 16;
 		
 		
 
@@ -115,7 +116,7 @@ namespace Movement
 		private void Collide()
 		{		
 			
-			if (Raylib.CheckCollisionCircleRec(new Vector2(ball.Position.X, ball.Position.Y), 17, new Rectangle(player.Position.X, player.Position.Y, player.texture.width, player.texture.height)))
+			if (Raylib.CheckCollisionCircleRec(new Vector2(ball.Position.X, ball.Position.Y), radius, new Rectangle(player.Position.X, player.Position.Y, player.texture.width, player.texture.height)))
 			{
 				Console.WriteLine("collide");
 				ball.Bounce();
@@ -123,7 +124,7 @@ namespace Movement
 			}
 			for (int i = 0; i < tiles.Count; i++)
 			{
-				if (Raylib.CheckCollisionCircleRec(new Vector2(ball.Position.X, ball.Position.Y), 17, new Rectangle(tiles[i].Position.X, tiles[i].Position.Y, tile.texture.width, tile.texture.height)))
+				if (Raylib.CheckCollisionCircleRec(new Vector2(ball.Position.X, ball.Position.Y), radius, new Rectangle(tiles[i].Position.X, tiles[i].Position.Y, tile.texture.width, tile.texture.height)))
 				{
 					RemoveChild(tiles[i]);
 					tiles.RemoveAt(i);
