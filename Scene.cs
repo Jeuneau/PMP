@@ -92,7 +92,6 @@ namespace Movement
 			base.Update(deltaTime);
 			HandleInput(deltaTime);
 			Collide();
-			
 		}
 
 		 
@@ -118,9 +117,7 @@ namespace Movement
 			
 			if (Raylib.CheckCollisionCircleRec(new Vector2(ball.Position.X, ball.Position.Y), radius, new Rectangle(player.Position.X, player.Position.Y, player.texture.width, player.texture.height)))
 			{
-				Console.WriteLine("collide");
 				ball.Bounce();
-				Console.WriteLine("Ball position: " + ball.Position);
 			}
 			for (int i = 0; i < tiles.Count; i++)
 			{
