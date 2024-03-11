@@ -75,8 +75,8 @@ namespace Movement
 		{
 			//Position.Y = texture.height * (float)1.4 + radius;
 			Velocity.Y *= -1;
-			Velocity.Y += 15;
-			Velocity.X += 35;
+			Velocity.Y += 25;
+			Velocity.X += 45;
 		}
 	}
 }

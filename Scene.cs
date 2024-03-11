@@ -7,6 +7,7 @@ using System.Runtime.InteropServices;
 
 
 
+
 namespace Movement
 {
 	class Scene : SceneNode
@@ -28,6 +29,7 @@ namespace Movement
 		private Tile tile9;
 		private Tile tile10;
 		public float radius = 16;
+		public Sound hit;
 		
 		
 
@@ -82,6 +84,8 @@ namespace Movement
 			tile8.Position= new Vector2(600,275);
 			tile9.Position = new Vector2(1000,275);
 			tile10.Position = new Vector2(200,375);
+			Raylib.InitAudioDevice(); 
+			
 		}
 
         // Update is called every frame
@@ -118,6 +122,7 @@ namespace Movement
 			if (Raylib.CheckCollisionCircleRec(new Vector2(ball.Position.X, ball.Position.Y), radius, new Rectangle(player.Position.X, player.Position.Y, player.texture.width, player.texture.height)))
 			{
 				ball.Bounce();
+				hit = Raylib.LoadSound("resources/ball_hits_paddle.wav");        
 			}
 			for (int i = 0; i < tiles.Count; i++)
 			{
@@ -127,7 +132,7 @@ namespace Movement
 					tiles.RemoveAt(i);
 					eliminated_tiles++;
 				}
-			}
+			} 
 		}
 	}
 }
