@@ -30,6 +30,7 @@ namespace Movement
 		private Tile tile10;
 		public float radius = 16;
 		public Sound hit;
+		public Sound hit2;
 		
 		
 
@@ -85,7 +86,8 @@ namespace Movement
 			tile9.Position = new Vector2(1000,275);
 			tile10.Position = new Vector2(200,375);
 			Raylib.InitAudioDevice(); 
-			
+			hit = Raylib.LoadSound("resources/ball_hits_paddle.wav");
+			hit2 = Raylib.LoadSound("resources/cow_moo.wav");
 		}
 
         // Update is called every frame
@@ -122,7 +124,7 @@ namespace Movement
 			if (Raylib.CheckCollisionCircleRec(new Vector2(ball.Position.X, ball.Position.Y), radius, new Rectangle(player.Position.X, player.Position.Y, player.texture.width, player.texture.height)))
 			{
 				ball.Bounce();
-				hit = Raylib.LoadSound("resources/ball_hits_paddle.wav");        
+				Raylib.PlaySound(hit);     
 			}
 			for (int i = 0; i < tiles.Count; i++)
 			{
@@ -131,6 +133,7 @@ namespace Movement
 					RemoveChild(tiles[i]);
 					tiles.RemoveAt(i);
 					eliminated_tiles++;
+					Raylib.PlaySound(hit2);
 				}
 			} 
 		}

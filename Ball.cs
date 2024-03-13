@@ -66,8 +66,6 @@ namespace Movement
 				Move(deltaTime);
 				BounceEdges();
 			}
-			
-			
 		}
 
 		// your own private methods
