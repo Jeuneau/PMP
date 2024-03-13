@@ -24,7 +24,7 @@ namespace Movement
 	class Player : MoverNode
 	{
 		// your private fields here (rotSpeed, thrustForce)
-		 private float horSpeed= 650.0f;
+		 private float horSpeed= 1150.0f;
 		 public Vector2 position;
 		 public Texture2D texture;
 		 public Vector2 velocity;
@@ -55,51 +55,6 @@ namespace Movement
 		public void Draw()
         {
             Raylib.DrawTexture(texture, (int)Position.X, (int)Position.Y, Color.WHITE);
-        }
-
-		public void WrapEdges()
-		{
-			float scr_width = window_width;
-			float scr_height = window_height;
-			float spr_width = playerwidth;
-			float spr_height = playerheight;
-            
-			if (Position.X > scr_width) {
-                Position.X = 0;
-            }
-            if (Position.X < 0) {
-                Position.X = scr_width;
-            }
-            if (Position.Y > scr_height) {
-                Position.Y = 0;
-            }
-            if (Position.Y < 0) {
-                Position.Y = scr_height;
-            }
-		}
-
-		// Update is called every frame
-		public override void Update(float deltaTime)
-		{
-			
-		}
-
-		// your own private methods
-
-
-
-
-
-		
-
-		
-
-		
-
-		
-
-		
-
-		
+        }		
     }
 }

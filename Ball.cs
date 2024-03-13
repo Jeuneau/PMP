@@ -73,10 +73,9 @@ namespace Movement
 		// your own private methods
 		public void Bounce() 
 		{
-			//Position.Y = texture.height * (float)1.4 + radius;
 			Velocity.Y *= -1;
-			Velocity.Y += 25;
-			Velocity.X += 45;
+			Velocity.Y += 100;
+			Velocity.X += 85;
 		}
 	}
 }

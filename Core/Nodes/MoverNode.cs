@@ -27,7 +27,7 @@ namespace Movement
 		// constructor
 		protected MoverNode(string title) : base(title)
 		{
-			Velocity = new Vector2(375, 375);
+			Velocity = new Vector2(500, 500);
 			Acceleration = new Vector2(50, 60);
 			Mass = 1.0f;
 		}
