@@ -4,6 +4,7 @@ using Raylib_cs;
 using System.Numerics;
 using System.Runtime.ConstrainedExecution;
 using System.Runtime.InteropServices;
+using System.Threading;
 
 
 
@@ -31,7 +32,7 @@ namespace Movement
 		public float radius = 16;
 		public Sound hit;
 		public Sound hit2;
-		
+		public Music bgm;
 		
 
 		// constructor + call base constructor
@@ -75,19 +76,20 @@ namespace Movement
 			tiles.Add(tile9);
 			tiles.Add(tile10);
 
-			tile.Position = new Vector2(200,75);
-			tile2.Position= new Vector2(600,75);
-			tile3.Position= new Vector2(1000,75);
-			tile4.Position = new Vector2(200,175);
-			tile5.Position = new Vector2(600,175);
-			tile6.Position = new Vector2(1000,175);
-			tile7.Position= new Vector2(200,275);
-			tile8.Position= new Vector2(600,275);
-			tile9.Position = new Vector2(1000,275);
-			tile10.Position = new Vector2(200,375);
+			tile.Position = new Vector2(200,200);
+			tile2.Position= new Vector2(600,400);
+			tile3.Position= new Vector2(1000,300);
+			tile4.Position = new Vector2(700,200);
+			tile5.Position = new Vector2(400,300);
+			tile6.Position = new Vector2(100,400);
+			tile7.Position= new Vector2(800,500);
+			tile8.Position= new Vector2(50,300);
+			tile9.Position = new Vector2(1000,400);
+			tile10.Position = new Vector2(200,500);
 			Raylib.InitAudioDevice(); 
 			hit = Raylib.LoadSound("resources/ball_hits_paddle.wav");
 			hit2 = Raylib.LoadSound("resources/cow_moo.wav");
+			bgm = Raylib.LoadMusicStream("resources/Arkanoid_bgm.mp3");
 		}
 
         // Update is called every frame
@@ -98,6 +100,7 @@ namespace Movement
 			base.Update(deltaTime);
 			HandleInput(deltaTime);
 			Collide();
+			Play_bgm();
 		}
 
 		 
@@ -137,6 +140,19 @@ namespace Movement
 				}
 			} 
 		}
+
+		private void Play_bgm()
+		{
+			if(current_time > 0)
+			{
+				Raylib.PlayMusicStream(bgm);
+			}
+			
+		}
+
+		
+
+		
 	}
 }
  // class
