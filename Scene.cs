@@ -76,16 +76,16 @@ namespace Movement
 			tiles.Add(tile9);
 			tiles.Add(tile10);
 
-			tile.Position = new Vector2(200,200);
-			tile2.Position= new Vector2(600,400);
-			tile3.Position= new Vector2(1000,300);
-			tile4.Position = new Vector2(700,200);
-			tile5.Position = new Vector2(400,300);
-			tile6.Position = new Vector2(100,400);
-			tile7.Position= new Vector2(800,500);
-			tile8.Position= new Vector2(50,300);
-			tile9.Position = new Vector2(1000,400);
-			tile10.Position = new Vector2(200,500);
+			tile.Position = new Vector2(200,50);
+			tile2.Position= new Vector2(600,100);
+			tile3.Position= new Vector2(950,50);
+			tile4.Position = new Vector2(700,300);
+			tile5.Position = new Vector2(400,200);
+			tile6.Position = new Vector2(800,50);
+			tile7.Position= new Vector2(1000,200);
+			tile8.Position= new Vector2(80,200);
+			tile9.Position = new Vector2(75,400);
+			tile10.Position = new Vector2(400,300);
 			Raylib.InitAudioDevice(); 
 			hit = Raylib.LoadSound("resources/ball_hits_paddle.wav");
 			hit2 = Raylib.LoadSound("resources/cow_moo.wav");
