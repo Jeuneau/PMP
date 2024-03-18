@@ -26,18 +26,9 @@ namespace Movement
 	{
 		// your private fields here (add Velocity, Acceleration, addForce method)
 		public Texture2D texture;
-		public double angle;
-		float scr_width;
-		float scr_height;
-		float spr_width;
-		float spr_height;
 		public bool canMove = true;
 		public Player player;
-		public float speed;
-		public double bounceAngle;
-		public float hitPoint;
-		public double bounceAngleInRadians;
-		public float radius;	
+	
 	
 
 		// constructor + call base constructor
@@ -47,14 +38,7 @@ namespace Movement
 			GetTexture("resources/ball.png");
 			Position = new Vector2(600, 450);
 			Color = Color.BLUE;
-			angle = Math.Atan2(Velocity.Y, Velocity.X);
-			float scr_width = Settings.ScreenSize.X;
-			float scr_height = Settings.ScreenSize.Y;
-			float spr_width = TextureSize.X;
-			float spr_height = TextureSize.Y;
-			bounceAngle = 45.0* Math.PI / 180.0;
-			speed = 200.0f;
-			radius = 17;
+			Velocity = new Vector2(800, 800);
 		}	
 
 
