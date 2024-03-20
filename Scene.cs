@@ -88,7 +88,7 @@ namespace Movement
 			tile10.Position = new Vector2(400,300);
 			Raylib.InitAudioDevice(); 
 			hit = Raylib.LoadSound("resources/ball_hits_paddle.wav");
-			hit2 = Raylib.LoadSound("resources/cow_moo.wav");
+			hit2 = Raylib.LoadSound("resources/clown_horn.wav");
 			bgm = Raylib.LoadMusicStream("resources/Arkanoid_bgm.mp3");
 		}
 
