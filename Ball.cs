@@ -27,7 +27,7 @@ namespace Movement
 		// your private fields here (add Velocity, Acceleration, addForce method)
 		public Texture2D texture;
 		public bool canMove = true;
-		public Player player;
+		
 	
 	
 
@@ -50,6 +50,7 @@ namespace Movement
 				Move(deltaTime);
 				BounceEdges();
 			}
+
 		}
 
 		// your own private methods
@@ -59,6 +60,9 @@ namespace Movement
 			Velocity.Y += 100;
 			Velocity.X += 85;
 		}
+
+	
+		
 	}
 }
 

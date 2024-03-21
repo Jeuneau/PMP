@@ -1,3 +1,4 @@
+using System;
 using System.Numerics;
 using System.Security.Cryptography.X509Certificates;
 
@@ -9,6 +10,9 @@ namespace Movement
 		public Vector2 Velocity;
 		public Vector2 Acceleration;
 		private float mass; // OK, let's keep this one private
+		float scr_width = Settings.ScreenSize.X;
+		float scr_height = Settings.ScreenSize.Y;
+		
 		
 
 		// public Vector2 Velocity { 
@@ -54,11 +58,8 @@ namespace Movement
 
 		public void BounceEdges()
 		{
-			float scr_width = Settings.ScreenSize.X;
-			float scr_height = Settings.ScreenSize.Y;
-			float spr_width = TextureSize.X;
 			float spr_height = TextureSize.Y;
-
+			float spr_width = TextureSize.X;
 			// TODO implement...
 			if (Position.X > scr_width - spr_width/2)
 			{
@@ -70,16 +71,18 @@ namespace Movement
 				Velocity.X*=-1;
 			}
 
-			if (Position.Y > scr_height - spr_height/2)
+			/*if (Position.Y > scr_height - spr_height/2)
 			{
 				Velocity.Y*=-1;
-			}
+			}*/
 
 			if (Position.Y < 0 + spr_height/2)
 			{
 				Velocity.Y*=-1;
 			}
 		}
+
+		
 		public void WrapEdges()
 		{
 			float scr_width = Settings.ScreenSize.X;

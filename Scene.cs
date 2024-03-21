@@ -13,6 +13,7 @@ namespace Movement
 {
 	class Scene : SceneNode
 	{	
+		private MoverNode moverNode;
 		public Ball ball;
 		public Player player;
 		List<Tile> tiles;
@@ -101,6 +102,7 @@ namespace Movement
 			HandleInput(deltaTime);
 			Collide();
 			Play_bgm();
+			//Miss();
 		}
 
 		 
@@ -146,9 +148,26 @@ namespace Movement
 			if(current_time > 0)
 			{
 				Raylib.PlayMusicStream(bgm);
-			}
-			
+			}	
 		}
+
+		public void Miss()
+		{
+			float spr_height = moverNode.TextureSize.Y;
+			float scr_height = Settings.ScreenSize.Y;
+
+			if (Position.Y > scr_height - spr_height/2)
+			{
+				//Lose();
+			}
+		
+		}
+
+		
+
+		
+
+		
 
 		
 

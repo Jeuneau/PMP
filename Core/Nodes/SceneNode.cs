@@ -1,5 +1,7 @@
 using System.Runtime.CompilerServices;
 using Raylib_cs;
+using System.Numerics;
+using System.Security.Cryptography.X509Certificates;
 
 namespace Movement
 {
@@ -21,7 +23,7 @@ namespace Movement
 		public Gameover gameover;
 		public Youwon youwon;
 		public bool collide_ = true;
-		
+		public Ball ball;
 
 
 		
@@ -46,11 +48,14 @@ namespace Movement
 			ShowScore();
 			CountDown();
 			Win();
+
 		}
 
 		private float timer = 0;
 		private int framecounter = 0;
 		private int showcounter = 0;
+		
+
 		private void ShowFrameRate(float deltaTime)
 		{
 			timer += deltaTime;
@@ -80,7 +85,6 @@ namespace Movement
 				gameover = new Gameover();
 				AddChild(gameover);
 				input = false;
-
 			}
 			Raylib.DrawText($"Time: {playtime:0.00}", 1150, 50, 20, Color. RED);
 		}
