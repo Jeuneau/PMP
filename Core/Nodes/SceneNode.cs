@@ -18,7 +18,7 @@ namespace Movement
 		public bool input = true;
 
 		public int eliminated_tiles = 0;
-		public float playtime = 60.0f;
+		public float playtime = 30.0f;
 		public float current_time = 0f;
 		public Gameover gameover;
 		public Youwon youwon;
@@ -48,7 +48,6 @@ namespace Movement
 			ShowScore();
 			CountDown();
 			Win();
-
 		}
 
 		private float timer = 0;
