@@ -36,9 +36,9 @@ namespace Movement
 		{
 			texture = ResourceManager.Instance.
 			GetTexture("resources/ball.png");
-			Position = new Vector2(600, 100);
+			Position = new Vector2(600, 450);
 			Color = Color.BLUE;
-			Velocity = new Vector2(700, 700);
+			Velocity = new Vector2(500, 700);
 		}	
 
 
@@ -57,8 +57,8 @@ namespace Movement
 		public void Bounce() 
 		{
 			Velocity.Y *= -1;
-			Velocity.Y += 100;
-			Velocity.X += 85;
+			Velocity.Y += 50;
+			Velocity.X += 42.5f;
 		}
 
 	

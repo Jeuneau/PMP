@@ -139,6 +139,7 @@ namespace Movement
 					tiles.RemoveAt(i);
 					eliminated_tiles++;
 					Raylib.PlaySound(hit2);
+					ball.Bounce();
 				}
 			} 
 		}
