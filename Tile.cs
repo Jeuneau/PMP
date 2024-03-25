@@ -13,6 +13,7 @@ namespace Movement
         public Tile() : base("resources/Target_rec.png")
         {
             texture = ResourceManager.Instance.GetTexture("resources/Target_rec.png");
+            Pivot= new Vector2(0,0);
         }
 
         

@@ -159,7 +159,11 @@ namespace Movement
 
 			if (Position.Y > scr_height - spr_height/2)
 			{
-				//Lose();
+				/*State = State.Lost;
+				playtime = 0;
+				gameover = new Gameover();
+				AddChild(gameover);
+				input = false;*/
 			}
 		
 		}
