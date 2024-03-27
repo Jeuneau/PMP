@@ -25,13 +25,8 @@ namespace Movement
 	{
 		// your private fields here (rotSpeed, thrustForce)
 		 private float horSpeed= 1150.0f;
-		 public Vector2 position;
 		 public Texture2D texture;
-		 public Vector2 velocity;
-		 public float window_width = 1280;
-		 public float window_height = 720;
-		 public int playerwidth= 64;
-		 public int playerheight= 199;
+		
 
 
 		
@@ -52,7 +47,7 @@ namespace Movement
             Position.X += horSpeed * deltaTime;
         }
 
-		public void Draw()
+		public new void Draw()
         {
             Raylib.DrawTexture(texture, (int)Position.X, (int)Position.Y, Color.WHITE);
         }		

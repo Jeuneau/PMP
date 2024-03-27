@@ -60,9 +60,6 @@ namespace Movement
 			Velocity.Y += 50;
 			Velocity.X += 42.5f;
 		}
-
-	
-		
 	}
 }
 

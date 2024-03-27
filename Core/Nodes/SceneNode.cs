@@ -14,19 +14,7 @@ namespace Movement
 	}
 
 	abstract class SceneNode : Node
-	{
-		public bool input = true;
-
-		public int eliminated_tiles = 0;
-		public float playtime = 40.0f;
-		public float current_time = 0f;
-		public Gameover gameover;
-		public Youwon youwon;
-		public bool collide_ = true;
-		public Ball ball;
-
-
-		
+	{		
 		public State State { get; set; }
 
 		private string scenetitle;
@@ -45,9 +33,6 @@ namespace Movement
 		{
 			ShowFrameRate(deltaTime);
 			ShowTitle();
-			ShowScore();
-			CountDown();
-			Win();
 		}
 
 		private float timer = 0;
@@ -67,39 +52,7 @@ namespace Movement
 			Raylib.DrawText("fps: "+showcounter, 1150, 10, 20, Color.GREEN);
 		}
 
-		private void ShowScore()
-		{
-			Raylib.DrawText("Score: "+ eliminated_tiles, 1150, 30, 20, Color.BLUE);
-		}
-
-		private void CountDown()
-		{
-			current_time = Raylib.GetFrameTime();
-			playtime -= current_time;
-			
-			if(playtime <= 0)
-			{
-				State = State.Lost;
-				playtime = 0;
-				gameover = new Gameover();
-				AddChild(gameover);
-				input = false;
-				RemoveChild(ball);
-			}
-			Raylib.DrawText($"Time: {playtime:0.00}", 1150, 50, 20, Color. RED);
-		}
-
-		public void Win()
-		{
-			if(eliminated_tiles == 10)
-			{
-				State = State.Won;
-				youwon = new Youwon();
-				AddChild(youwon);
-				input = false;
-			}
-			
-		}
+	
 
 		private void ShowTitle()
 		{
