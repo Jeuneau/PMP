@@ -4,16 +4,16 @@ using Raylib_cs; // Color
 
 namespace Movement
 {
-    class Tile : SpriteNode
+    class Background : SpriteNode
     {
         public Texture2D texture;
 
         
         // constructor + call base constructor
-        public Tile() : base("resources/Target_rec.png")
+        public Background() : base("resources/circus_source.png")
         {
-            texture = ResourceManager.Instance.GetTexture("resources/Target_rec.png");
-            Pivot= new Vector2(0,0);
+            texture = ResourceManager.Instance.GetTexture("resources/circus_source.png");
+            Position = new Vector2(50,50);
         }
 
         public new void Draw()
@@ -23,4 +23,4 @@ namespace Movement
 
         
     }
-} // namespace
+}

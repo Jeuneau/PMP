@@ -8,10 +8,9 @@ namespace Movement
 {
     class Gameover : SpriteNode
     {
-        public Gameover() : base("resources/Spaceman_gameover.png") {
-
+        public Gameover() : base("resources/Spaceman_gameover.png") 
+        {
             Position = new Vector2(Settings.ScreenSize.X / 2, Settings.ScreenSize.Y / 2);
-
         }
     }
 

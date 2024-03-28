@@ -42,14 +42,15 @@ namespace Movement
 		public float current_time = 0f;
 		public Gameover gameover;
 		public Youwon youwon;
-		public bool collide_ = true;
+		public Background bg;
+		
 		
 
 		// constructor + call base constructor
 		public Scene(String t) : base(t)
 		{
+			bg = new Background();
 			ball = new Ball();
-			AddChild(ball);
 			player = new Player();
 			tiles = new List<Tile>();
 			tile = new Tile();
@@ -63,18 +64,6 @@ namespace Movement
 			tile9 = new Tile();
 			tile10 = new Tile();
 
-			
-			AddChild(tile);
-			AddChild(tile2);
-			AddChild(tile3);
-			AddChild(tile4);
-			AddChild(tile5);
-			AddChild(tile6);
-			AddChild(tile7);
-			AddChild(tile8);
-			AddChild(tile9);
-			AddChild(tile10);
-			
 			tiles.Add(tile);
 			tiles.Add(tile2);
 			tiles.Add(tile3);
@@ -96,6 +85,7 @@ namespace Movement
 			tile8.Position= new Vector2(80,200);
 			tile9.Position = new Vector2(75,400);
 			tile10.Position = new Vector2(400,300);
+
 			Raylib.InitAudioDevice(); 
 			hit = Raylib.LoadSound("resources/ball_hits_paddle.wav");
 			hit2 = Raylib.LoadSound("resources/clown_horn.wav");
@@ -105,8 +95,11 @@ namespace Movement
         // Update is called every frame
         public override void Update(float deltaTime)
 		{	
+			bg.Draw();
+			AddChild(ball);
 			player.Draw();
 			player.WrapEdges();
+			tiles.ForEach(tile => tile.Draw());
 			base.Update(deltaTime);
 			HandleInput(deltaTime);
 			Collide();
@@ -115,6 +108,7 @@ namespace Movement
 			ShowScore();
 			CountDown();
 			Win();
+			Restart();
 		}
 
 		 
@@ -207,20 +201,16 @@ namespace Movement
 				AddChild(youwon);
 				input = false;
 			}
-			
 		}
-		
-		
 
-		
-
-		
-
-		
-
-		
-
-		
+		public void Restart()
+		{
+			if (Raylib.IsKeyPressed(KeyboardKey.KEY_R))
+			{
+				Game game = new Game();
+				game.Play();
+			}
+		}
 	}
 }
  // class

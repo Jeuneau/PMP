@@ -60,6 +60,11 @@ namespace Movement
 			Velocity.Y += 50;
 			Velocity.X += 42.5f;
 		}
+
+		public new void Draw()
+        {
+            Raylib.DrawTexture(texture, (int)Position.X, (int)Position.Y, Color.WHITE);
+        }		
 	}
 }
 
