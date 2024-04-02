@@ -16,19 +16,6 @@ namespace Movement
 		public Ball ball;
 		public Player player;
 		List<Tile> tiles;
-        private Tile tile;
-        private Tile tile2;
-        private Tile tile3;
-
-		private Tile tile4;
-		private Tile tile5;
-
-		private Tile tile6;
-        private Tile tile7;
-        private Tile tile8;
-
-		private Tile tile9;
-		private Tile tile10;
 		public float radius = 16;
 		public Sound hit;
 		public Sound hit2;
@@ -53,39 +40,16 @@ namespace Movement
 			ball = new Ball();
 			player = new Player();
 			tiles = new List<Tile>();
-			tile = new Tile();
-			tile2 = new Tile();
-			tile3 = new Tile();
-			tile4 = new Tile();
-			tile5 = new Tile();
-			tile6 = new Tile();
-			tile7 = new Tile();
-			tile8 = new Tile();
-			tile9 = new Tile();
-			tile10 = new Tile();
 
-			tiles.Add(tile);
-			tiles.Add(tile2);
-			tiles.Add(tile3);
-			tiles.Add(tile4);
-			tiles.Add(tile5);
-			tiles.Add(tile6);
-			tiles.Add(tile7);
-			tiles.Add(tile8);
-			tiles.Add(tile9);
-			tiles.Add(tile10);
-
-			tile.Position = new Vector2(200,50);
-			tile2.Position= new Vector2(600,100);
-			tile3.Position= new Vector2(950,50);
-			tile4.Position = new Vector2(700,300);
-			tile5.Position = new Vector2(400,200);
-			tile6.Position = new Vector2(800,50);
-			tile7.Position= new Vector2(1000,200);
-			tile8.Position= new Vector2(80,200);
-			tile9.Position = new Vector2(75,400);
-			tile10.Position = new Vector2(400,300);
-
+			for (int y = 0; y < 3; y++)
+			{
+				for (int x = 0; x < 10; x++)
+				{
+					Tile tile = new Tile();
+					tile.Position = new Vector2(100 + x * 100, 50 + y * 50);
+					tiles.Add(tile);
+				}
+			}
 			Raylib.InitAudioDevice(); 
 			hit = Raylib.LoadSound("resources/ball_hits_paddle.wav");
 			hit2 = Raylib.LoadSound("resources/clown_horn.wav");
@@ -103,7 +67,6 @@ namespace Movement
 			base.Update(deltaTime);
 			HandleInput(deltaTime);
 			Collide();
-			Play_bgm();
 			Miss();
 			ShowScore();
 			CountDown();
@@ -139,7 +102,7 @@ namespace Movement
 			}
 			for (int i = 0; i < tiles.Count; i++)
 			{
-				if (Raylib.CheckCollisionCircleRec(new Vector2(ball.Position.X, ball.Position.Y), radius, new Rectangle(tiles[i].Position.X, tiles[i].Position.Y, tile.texture.width, tile.texture.height)))
+				if (Raylib.CheckCollisionCircleRec(new Vector2(ball.Position.X, ball.Position.Y), radius, new Rectangle(tiles[i].Position.X, tiles[i].Position.Y, tiles[i].texture.width, tiles[i].texture.height)))
 				{
 					RemoveChild(tiles[i]);
 					tiles.RemoveAt(i);
@@ -148,14 +111,6 @@ namespace Movement
 					ball.Bounce();
 				}
 			} 
-		}
-
-		private void Play_bgm()
-		{
-			if(current_time > 0)
-			{
-				Raylib.PlayMusicStream(bgm);
-			}	
 		}
 
 		public void Miss()
@@ -194,7 +149,7 @@ namespace Movement
 
 		public void Win()
 		{
-			if(eliminated_tiles == 10)
+			if(eliminated_tiles == 30)
 			{
 				State = State.Won;
 				youwon = new Youwon();

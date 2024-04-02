@@ -13,14 +13,12 @@ namespace Movement
         public Background() : base("resources/circus_source.png")
         {
             texture = ResourceManager.Instance.GetTexture("resources/circus_source.png");
-            Position = new Vector2(50,50);
+            Position = new Vector2(0,0);
         }
 
         public new void Draw()
         {
             Raylib.DrawTexture(texture, (int)Position.X, (int)Position.Y, Color.WHITE);
         }	
-
-        
     }
 }
