@@ -13,7 +13,7 @@ namespace Movement
         public Background() : base("resources/circus_source.png")
         {
             texture = ResourceManager.Instance.GetTexture("resources/circus_source.png");
-            Position = new Vector2(0,0);
+            Position = new Vector2(500,500);
         }
 
         public new void Draw()
