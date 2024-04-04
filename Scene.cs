@@ -116,7 +116,7 @@ namespace Movement
 		public void Miss()
 		{
 			float spr_height = ball.texture.height;
-			if (Position.Y > scr_height - spr_height/2)
+			if (ball.Position.Y > scr_height - spr_height/2)
 			{
 				State = State.Lost;
 				playtime = 0;
@@ -125,7 +125,7 @@ namespace Movement
 				input = false;
 			}
 		}
-
+		
 		public void ShowScore()
 		{
 			Raylib.DrawText("Score: "+ eliminated_tiles, 1150, 30, 20, Color.BLUE);
