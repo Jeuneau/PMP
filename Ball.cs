@@ -37,7 +37,7 @@ namespace Movement
 			texture = ResourceManager.Instance.
 			GetTexture("resources/ball.png");
 			Position = new Vector2(600, 600);
-			Color = Color.BLUE;
+			Color = Color.GREEN;
 			Velocity = new Vector2(500, -700);
 		}	
 

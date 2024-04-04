@@ -10,10 +10,10 @@ namespace Movement
 
         
         // constructor + call base constructor
-        public Background() : base("resources/circus_source.png")
+        public Background() : base("resources/carnival2.png")
         {
-            texture = ResourceManager.Instance.GetTexture("resources/circus_source.png");
-            Position = new Vector2(500,500);
+            texture = ResourceManager.Instance.GetTexture("resources/carnival2.png");
+            Position = new Vector2(0,0);
         }
 
         public new void Draw()
