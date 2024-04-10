@@ -6,7 +6,7 @@ namespace Movement
 {
     class Background : SpriteNode
     {
-        public Texture2D texture;
+        private Texture2D texture;
 
         
         // constructor + call base constructor

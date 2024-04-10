@@ -20,16 +20,17 @@ namespace Movement
 		public Sound hit;
 		public Sound hit2;
 		public Music bgm;
-		float scr_width = Settings.ScreenSize.X;
-		float scr_height = Settings.ScreenSize.Y;
-		public bool input = true;
+		private float scr_width = Settings.ScreenSize.X;
+		private float scr_height = Settings.ScreenSize.Y;
+		private float spr_height;
+		private bool input = true;
 
-		public int eliminated_tiles = 0;
-		public float playtime = 40.0f;
-		public float current_time = 0f;
-		public Gameover gameover;
-		public Youwon youwon;
-		public Background bg;
+		private int eliminated_tiles = 0;
+		private float playtime = 40.0f;
+		private float current_time = 0f;
+		private Gameover gameover;
+		private Youwon youwon;
+		private Background bg;
 		
 		
 
@@ -40,13 +41,14 @@ namespace Movement
 			ball = new Ball();
 			player = new Player();
 			tiles = new List<Tile>();
+			//minder nieuwe objecten maken, 1x maar
 
-			for (int y = 0; y < 3; y++)
+			for (int y = 0; y < 5; y++)
 			{
-				for (int x = 0; x < 10; x++)
+				for (int x = 0; x < 8; x++)
 				{
 					Tile tile = new Tile();
-					tile.Position = new Vector2(100 + x * 100, 50 + y * 50);
+					tile.Position = new Vector2(150 + x * 120, 50 + y * 60);
 					tiles.Add(tile);
 				}
 			}
@@ -115,7 +117,7 @@ namespace Movement
 
 		public void Miss()
 		{
-			float spr_height = ball.texture.height;
+			spr_height = ball.texture.height;
 			if (ball.Position.Y > scr_height - spr_height/2)
 			{
 				State = State.Lost;
@@ -149,7 +151,7 @@ namespace Movement
 
 		public void Win()
 		{
-			if(eliminated_tiles == 30)
+			if(eliminated_tiles == 40)
 			{
 				State = State.Won;
 				youwon = new Youwon();
@@ -162,8 +164,7 @@ namespace Movement
 		{
 			if (Raylib.IsKeyPressed(KeyboardKey.KEY_R))
 			{
-				Game game = new Game();
-				game.Play();
+				//constructor, veld resetten
 			}
 		}
 	}

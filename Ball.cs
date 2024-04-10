@@ -34,8 +34,7 @@ namespace Movement
 		// constructor + call base constructor
 		public Ball() : base("resources/ball.png")
 		{
-			texture = ResourceManager.Instance.
-			GetTexture("resources/ball.png");
+			texture = ResourceManager.Instance.GetTexture("resources/ball.png");
 			Position = new Vector2(600, 600);
 			Color = Color.GREEN;
 			Velocity = new Vector2(500, -700);
@@ -57,14 +56,13 @@ namespace Movement
 		public void Bounce() 
 		{
 			Velocity.Y *= -1;
-			Velocity.Y += 50;
-			Velocity.X += 42.5f;
+			//stuiteren moet beter bij links raken verder naar rechts stuiteren en omgekeerd voor rechts raken
+			// dit in Scene schrijven
+			/*Velocity.Y += 50;
+			Velocity.X += 42.5f;*/
 		}
 
-		public new void Draw()
-        {
-            Raylib.DrawTexture(texture, (int)Position.X, (int)Position.Y, Color.WHITE);
-        }		
+		
 	}
 }
 
