@@ -53,16 +53,6 @@ namespace Movement
 		}
 
 		// your own private methods
-		public void Bounce() 
-		{
-			Velocity.Y *= -1;
-			//stuiteren moet beter bij links raken verder naar rechts stuiteren en omgekeerd voor rechts raken
-			// dit in Scene schrijven
-			/*Velocity.Y += 50;
-			Velocity.X += 42.5f;*/
-		}
-
-		
 	}
 }
 

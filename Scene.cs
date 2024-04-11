@@ -48,7 +48,7 @@ namespace Movement
 				for (int x = 0; x < 8; x++)
 				{
 					Tile tile = new Tile();
-					tile.Position = new Vector2(150 + x * 120, 50 + y * 60);
+					tile.Position = new Vector2(280 + x * 90, 50 + y * 70);
 					tiles.Add(tile);
 				}
 			}
@@ -99,7 +99,7 @@ namespace Movement
 			
 			if (Raylib.CheckCollisionCircleRec(new Vector2(ball.Position.X, ball.Position.Y), radius, new Rectangle(player.Position.X, player.Position.Y, player.texture.width, player.texture.height)))
 			{
-				ball.Bounce();
+				Bounce();
 				Raylib.PlaySound(hit);     
 			}
 			for (int i = 0; i < tiles.Count; i++)
@@ -110,7 +110,7 @@ namespace Movement
 					tiles.RemoveAt(i);
 					eliminated_tiles++;
 					Raylib.PlaySound(hit2);
-					ball.Bounce();
+					Bounce();
 				}
 			} 
 		}
@@ -166,6 +166,13 @@ namespace Movement
 			{
 				//constructor, veld resetten
 			}
+		}
+
+		public void Bounce() 
+		{
+			ball.Velocity.Y *= -1;
+			//stuiteren moet beter bij links raken verder naar rechts stuiteren en omgekeerd voor rechts raken m.b.v. hoeken
+			// dit in Scene schrijven
 		}
 	}
 }
